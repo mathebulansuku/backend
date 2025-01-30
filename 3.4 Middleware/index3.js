@@ -4,6 +4,7 @@ const app = express();
 const port = 3000;
 
 function logger(req, res, next) {
+  //A custom middleware used to log Request method and URL.
   console.log("Request Method:", req.method);
   console.log("Request URL:", req.url);
   next();
@@ -11,8 +12,8 @@ function logger(req, res, next) {
 
 app.use(logger());
 
-app.get("/submit", (req, res) => {
-  res.send("Hello");
+app.get("/", (req, res) => {
+  res.send("Hello custom middleware");
 });
 
 app.listen(port, () => {
