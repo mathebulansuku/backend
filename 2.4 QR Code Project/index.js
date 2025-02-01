@@ -13,7 +13,7 @@ inquirer
 
     fs.writeFile("URL.txt", url, (err) => {
       if (err) throw err;
-      console.log("The QR code has been generated");
+      console.log("The QR image has been generated");
     });
   })
   .catch((error) => {

@@ -1,8 +1,11 @@
 // import generateName from "sillyname";
-import superheroes from "superheroes";
 
-// var sillyName = generateName();
-const name = superheroes;
+import superheros from "superheros";
 
-// console.log(`My name is ${sillyName}.`);
-console.log(`I am ${name}.`);
+const name = superheros.random();
+
+console.log(`I am ${name}`);
+
+// const sillyName = generateName();
+
+// console.log(`my name is ${sillyName}.`);
