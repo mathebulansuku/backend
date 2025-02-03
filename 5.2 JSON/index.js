@@ -26,11 +26,11 @@ app.get("/", (req, res) => {
 
 app.post("/recipe", (req, res) => {
   let choice = req.body.choice;
-  if ((choice = "chicken")) {
+  if (choice === "chicken") {
     data = JSON.parse(recipeJSON)[0];
-  } else if ((choice = "beef")) {
+  } else if (choice === "beef") {
     data = JSON.parse(recipeJSON)[1];
-  } else if ((choice = "fish")) {
+  } else if (choice === "fish") {
     data = JSON.parse(recipeJSON)[2];
   }
   res.redirect("/");
