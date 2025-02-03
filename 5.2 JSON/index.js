@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 // const jsonData = JSON.stringify(data)
 
 app.post("/recipe", (req, res) => {
-  let choice;
+  let choice = req.body.choice;
   if ((choice = "chicken")) {
     data = JSON.parse(recipeJSON)[0];
   } else if ((choice = "beef")) {
