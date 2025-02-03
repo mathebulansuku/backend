@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", async (req, res) => {
   try {
-    const response = await axios.get("https://bored-api.appbrewery.com/random");
+    const response = await axios.get("http://localhost:4000/");
     const result = response.data;
     console.log(result);
     res.render("solution.ejs", { data: result });
@@ -28,7 +28,7 @@ app.post("/", async (req, res) => {
     const type = req.body.type;
     const participants = req.body.participants;
     const response = await axios.get(
-      `https://bored-api.appbrewery.com/filter?type=${type}&participants=${participants}`
+      `http://localhost:4000//filter?type=${type}&participants=${participants}`
     );
     const result = response.data;
     console.log(result);
