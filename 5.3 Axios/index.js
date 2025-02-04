@@ -39,12 +39,9 @@ app.post("/", async (req, res) => {
       data: Math.floor(Math.random() * result.length),
     });
   } catch (error) {
-    console.error(
-      "Failed to make request:",
-      "The server running the site is not working 502 server error"
-    );
+    console.error("Failed to make request:", error.message);
     res.render("index.ejs", {
-      error: error.message,
+      error: "No activities match your criteria",
     });
   }
 
