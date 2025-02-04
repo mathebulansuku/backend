@@ -29,10 +29,11 @@ app.post("/", async (req, res) => {
 
   try {
     console.log(req.body);
-    const type = req.body.type;
-    const participants = req.body.participants;
+    // const type = req.body.type;
+    // const participants = req.body.participants;
+    const { type, participants } = req.body;
     const response = await axios.get(
-      `http://localhost/4000/filter?type=${type}&participants=${participants}`
+      `http://localhost:4000/filter?type=${type}&participants=${participants}`
     );
     const result = response.data;
     res.render("index.ejs", {
@@ -40,7 +41,7 @@ app.post("/", async (req, res) => {
     });
   } catch (error) {
     console.error("Failed to make request:", error.message);
-    res.render("index.ejs", {
+    return res.render("index.ejs", {
       error: "No activities match your criteria",
     });
   }
