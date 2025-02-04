@@ -32,9 +32,12 @@ app.post("/", async (req, res) => {
     const type = req.body.type;
     const participants = req.body.participants;
     const response = await axios.get(
-      "http://localhost/4000/random/{type}?{participants}"
+      `http://localhost/4000/filter?type=${type}&participants=${participants}`
     );
-    res.render("index.ejs", { data: response.data });
+    const result = response.data;
+    res.render("index.ejs", {
+      data: Math.floor(Math.random() * result.length),
+    });
   } catch (error) {
     console.error(
       "Failed to make request:",
