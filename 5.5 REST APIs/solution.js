@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
 
 app.post("/get-secret", async (req, res) => {
   const searchId = req.body.id;
+
   try {
     const result = await axios.get(API_URL + "/secrets/" + searchId, config);
     res.render("index.ejs", { content: JSON.stringify(result.data) });
@@ -29,6 +30,7 @@ app.post("/get-secret", async (req, res) => {
 });
 
 app.post("/post-secret", async (req, res) => {
+  const searchId = req.body.id;
   try {
     const result = await axios.post(API_URL + "/secrets", req.body, config);
     res.render("index.ejs", { content: JSON.stringify(result.data) });
