@@ -10,10 +10,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //1. GET a random joke
 app.get("/random", (req, res) => {
   const randomIndex = Math.floor(Math.random() * jokes.length);
-  res.json({ jokes: jokes[randomIndex] });
+  const jokesDisplay = res.json({ jokes: jokes[randomIndex] });
 });
 
 //2. GET a specific joke
+
+app.get("/jokes/:id", (req, res) => {
+  const id = req.params.id;
+  const foundJoke = jokes.find((jokes) => {
+    jokes.id === id;
+  });
+  res.json(foundJoke);
+});
 
 //3. GET a jokes by filtering on the joke type
 
