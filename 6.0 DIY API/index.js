@@ -49,6 +49,18 @@ app.post("/jokes", (req, res) => {
 
 //5. PUT a joke
 
+app.put("/jokes", (req, res) => {
+  const id = parseInt(req.params.id); // Turn string into integer
+  const updatedJoke = {
+    id: id,
+    jokeText: req.body.text,
+    jokeType: req.body.type,
+  };
+  const searchIndex = jokes.findIndex((joke) => joke.id === id);
+  jokes[searchIndex] = updatedJoke;
+  res.json(updatedJoke);
+});
+
 //6. PATCH a joke
 
 //7. DELETE Specific joke
