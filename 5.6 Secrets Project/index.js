@@ -22,10 +22,6 @@ app.get("/", async (req, res) => {
     res.status(500); //Server error
   }
 });
-// 4. When the user goes to the home page it should render the index.ejs file.
-
-// 5. Use axios to get a random secret and pass it to index.ejs to display the
-// secret and the username of the secret.
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
