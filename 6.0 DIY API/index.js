@@ -35,6 +35,18 @@ app.get("", (req, res) => {
 
 //4. POST a new joke
 
+app.post("/jokes", (req, res) => {
+  const newJokes = {
+    id: jokes.length + 1,
+    jokeText: req.body.text,
+    jokeType: req.body.type,
+  };
+
+  jokes.push(newJokes);
+  console.log(jokes.slice(-1)); // This outputs the last joke (newJoke) in the jokes array
+  res.json(newJokes);
+});
+
 //5. PUT a joke
 
 //6. PATCH a joke
