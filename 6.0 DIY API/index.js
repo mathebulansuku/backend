@@ -10,13 +10,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //1. GET a random joke
 app.get("/random", (req, res) => {
   const randomIndex = Math.floor(Math.random() * jokes.length);
-  const jokesDisplay = res.json({ jokes: jokes[randomIndex] });
+  const jokesDisplay = res.json(jokes[randomIndex]);
 });
 
 //2. GET a specific joke
 
 app.get("/jokes/:id", (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id); // parseInt converts a string (req.params.id) into a integer
   const foundJoke = jokes.find((jokes) => {
     jokes.id === id;
   });
@@ -24,6 +24,14 @@ app.get("/jokes/:id", (req, res) => {
 });
 
 //3. GET a jokes by filtering on the joke type
+
+app.get("", (req, res) => {
+  const type = req.query.type;
+  const filteredActivities = jokes.filter((joke) => {
+    joke.jokeType === type;
+    res.json(filteredActivities);
+  });
+});
 
 //4. POST a new joke
 
