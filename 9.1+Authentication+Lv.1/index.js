@@ -19,9 +19,15 @@ app.get("/register", (req, res) => {
   res.render("register.ejs");
 });
 
-app.post("/register", async (req, res) => {});
+app.post("/register", async (req, res) => {
+  const email = req.body.username;
+  const password = req.body.password;
+});
 
-app.post("/login", async (req, res) => {});
+app.post("/login", async (req, res) => {
+  const email = req.body.username;
+  const password = req.body.password;
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
