@@ -26,6 +26,7 @@ db.query("SELECT * FROM capitals", (err, res) => {
     quiz = res.rows;
     console.log("Quiz data loaded:", quiz);
   }
+  db.end();
 });
 
 let totalCorrect = 0;
